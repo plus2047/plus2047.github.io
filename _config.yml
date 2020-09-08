@@ -1,0 +1,60 @@
+encoding: utf-8
+
+# SEO相关信息
+title: plus2047 blog
+description: plus2047's persional blog
+keywords: blog,bigdata,machinelearning,coding
+author: plus2047
+footerText: 'copyleft @ plus2047, 2020'
+
+# 这些不要动
+permalink: /posts/:year/:month/:day/:title.html
+kramdown:
+  auto_ids: true
+  input: GFM
+exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'cli.bat', 'dist.tar.gz']
+
+# 域名配置
+# baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
+domainUrl: 'http://plus2047.github.io'
+baseurl: ''
+
+# 吐个槽地址，会在chat页面中重定向到该地址
+tucaoUrl: https://github.com/plus2047/plus2047.github.io/issues
+
+# 菜单
+menu:
+  - title: home
+    url: /
+  - title: categories
+    url: /pages/categories.html
+  - title: search
+    url: /pages/search.html
+  - title: links
+    url: /pages/links.html
+  - title: chat
+    url: /pages/chat.html
+  - title: about
+    url: /pages/about.html
+
+# 点击页面文字冒出特效,不需要请设置为false
+extClickEffect: false
+
+# Google Adsense,不需要请设置为false
+# _includes/ext-adsense.html 里面修改为自己的配置
+extAdsense: false
+
+# 腾讯MTA移动分析,不需要请设置为false
+# _includes/ext-adsense.html 里面修改为自己的配置
+extMTA: false
+
+# 百度收录自动推送,不需要请设置为false
+extBaidu: true
+
+# 数学公式支持，比较影响加载速度,不需要请设置为false
+extMath: false
+
+# 友情链接
+links:
+  - title: TMaize Blog
+    url: https://blog.tmaize.net/
