@@ -8,7 +8,7 @@ author: plus2047
 footerText: 'copyleft @ plus2047, 2020'
 
 # 这些不要动
-permalink: /posts/:year/:month/:day/:title.html
+permalink: /posts/:year-:month-:day-:title.html
 kramdown:
   auto_ids: true
   input: GFM
@@ -52,7 +52,7 @@ extMTA: false
 extBaidu: true
 
 # 数学公式支持，比较影响加载速度,不需要请设置为false
-extMath: false
+extMath: true
 
 # 友情链接
 links:

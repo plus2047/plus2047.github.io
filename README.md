@@ -1,15 +1,13 @@
-# plus2047 persional blog.
+# plus2047 个人博客
 
 [![Language](https://img.shields.io/badge/Jekyll-Theme-blue)](https://github.com/plus2047/plus2047.github.io)
 [![license](https://img.shields.io/github/license/plus2047/plus2047.github.io)](https://github.com/plus2047/plus2047.github.io)
 
-Theme from:
+博客地址：[plus2047.github.io](http://plus2047.github.io)
 
-一款 jekyll 主题（[GitHub 地址](https://github.com/TMaize/tmaize-blog)），简洁纯净(主题资源请求<20KB)，未引入任何框架，秒开页面，支持自适应，支持全文检索
+主题：一款 jekyll 主题（[GitHub 地址](https://github.com/TMaize/tmaize-blog)），简洁纯净(主题资源请求<20KB)，未引入任何框架，秒开页面，支持自适应，支持全文检索
 
-你可以到[TMaize Blog](http://blog.tmaize.net/)查看主题效果，欢迎添加友链
-
-# Run
+# 运行
 
 一般提交到 github 过个几十秒就可以看到效果，如果你需要对在本地查看效果需要安装 ruby 环境
 
@@ -25,7 +23,7 @@ gem install bundler
 bundle exec jekyll serve --watch --host=0.0.0.0 --port=8080
 ```
 
-如果是 windows 系统，环境搭建好后可以运行项目下的`cli.bat`快速启动
+如果是 windows 系统，环境搭建好后可以运行项目下的`cli.bat`快速启动，Mac / Linux 手动装好依赖后可以运行 `run.sh` 启动本地服务。
 
 # 项目配置
 
@@ -41,7 +39,7 @@ bundle exec jekyll serve --watch --host=0.0.0.0 --port=8080
 
 6. 网站的 logo 和 favicon 放在了`static/img/`下，替换即可，大小无所谓，图片比例最好是 1:1
 
-7. 如果你是把项目 fork 过去的，想要删除我的提交记录可以先软重置到第一个提交，然后再提交一次，最后强制推送一次就行了
+7. 如果你是把项目 fork 过去的，想要删除我的提交记录可以先软重置到第一个提交，然后再提交一次，最后强制推送一次就行了（或者删除 .git 文件夹，重新创建项目）
 
 # 使用
 
@@ -56,10 +54,11 @@ categories: [分类1, 分类2]
 文章内容，Markdown格式
 ```
 
-文章资源放在`posts`目录，如文章文件名是`2019-05-01-theme-usage.md`，则该篇文章的资源需要放在`posts/2019/05/01`下,在文章使用时直接引用即可。当然了，写作的时候会提示资源不存在忽略即可
+文章资源放在 `posts` 目录下跟文件同名目录中。在文章使用时直接引用即可。可以在 typora, vscode 等软件中正常编辑文件、检测到图片等资源。
 
 ```md
 ![这是图片](xxx.png)
-
 [xxx.zip 下载](xxx.zip)
+<img src="image.jpg" alt="image" style="width:200px;"/>
+<img src="image.jpg" alt="image" style="zoom:50%;"/>
 ```
