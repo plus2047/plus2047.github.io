@@ -32,10 +32,10 @@ menu:
     url: /pages/search.html
   - title: links
     url: /pages/links.html
-  - title: chat
-    url: /pages/chat.html
   - title: about
     url: /pages/about.html
+  - title: <b>discuss</b>🍺
+    url: /pages/chat.html
 
 # 点击页面文字冒出特效,不需要请设置为false
 extClickEffect: false
