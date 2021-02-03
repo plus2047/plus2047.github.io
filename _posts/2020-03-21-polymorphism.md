@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: C++ 与 Java 中的多态与多重继承实现
-categories: [blog, oop, lang]
+categories: [lang]
 ---
 
 > 首次发表于 https://segmentfault.com/a/1190000022095060

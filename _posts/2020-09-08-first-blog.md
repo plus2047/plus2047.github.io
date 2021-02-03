@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: First Blog !!!
-categories: [blog, frontend]
+categories: []
 ---
 
 This is my first blog. It support images,
