@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: First Blog !!!
+title: First Blog !
 categories: []
 ---
 
