@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 2021.01 书影音记录
-categories: [life, douban]
+categories: [life]
 ---
 
 虽然本博客是以技术博客为主，但也记录一下生活。在此记录看过的电影、电视剧、图书等等。豆瓣的备份。
