@@ -22,3 +22,11 @@ categories: [life]
 </a> </td>
 </tr> </table>
 </center>
+
+## 2021.02.18 放牛班的春天
+
+经典作品，以前可能看过，重温一遍。
+
+没有不可救药的学生，可惜合适的教导可遇不可求。
+
+![](../posts/2021-02-01-douban/fangniuban.webp)
