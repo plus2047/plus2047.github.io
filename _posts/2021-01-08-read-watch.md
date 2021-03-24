@@ -14,7 +14,7 @@ categories: [life]
 
 <center>
 <a href="https://movie.douban.com/subject/24733428/?from=showing">
-<img src="../posts/2021-01-08-movies/soul.webp" width="60%" alt=""/>
+<img src="../posts/2021-01-08-cover/soul.webp" width="60%" alt=""/>
 </a>
 </center>
 
@@ -25,7 +25,7 @@ categories: [life]
 
 <center>
 <a href="https://movie.douban.com/subject/24733428/?from=showing">
-<img src="../posts/2021-01-08-movies/tokyo_godfathers.webp" width="60%" alt=""/>
+<img src="../posts/2021-01-08-cover/tokyo_godfathers.webp" width="60%" alt=""/>
 </a>
 </center>
 
@@ -36,6 +36,6 @@ categories: [life]
 
 <center>
 <a href="https://movie.douban.com/subject/30413128/">
-<img src="../posts/2021-01-08-movies/dogs.webp" width="60%" alt=""/>
+<img src="../posts/2021-01-08-cover/dogs.webp" width="60%" alt=""/>
 </a>
 </center>
