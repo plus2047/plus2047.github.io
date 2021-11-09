@@ -12,7 +12,7 @@ categories: [life]
 
 联合如此艰难。殖民者随意划分的国境线维持几十年之后就会成为历史事实，纠缠各方利益，加之宗教、民族、历史等等问题，纷争之中仇恨和纠纷逐渐积累，国家甚至会进一步分裂，更不能奢望走向联合。
 
-![](../posts/2021-03-01-cover/arabia.jpg)
+![](../../posts/2021-03-01-cover/arabia.jpg)
 
 ## 2021.03.14 极简主义者的崛起
 
@@ -20,7 +20,7 @@ categories: [life]
 
 一些关键词印象：泡沫经济之后，低欲望，老龄化，少子化，邻里，社区，从欧美崇拜到重拾日本文化，实用，极简，依托都市基础设施的生活，便利店，租房，不婚，少物件。
 
-![](../posts/2021-03-01-cover/minimalist.jpg)
+![](../../posts/2021-03-01-cover/minimalist.jpg)
 
 ## 2021.03.22 大融合
 
@@ -36,7 +36,7 @@ categories: [life]
 
 印象词：多样化，开放，交流，留学，旅游，欧美大学
 
-![](../posts/2021-03-01-cover/great-convergence.jpg)
+![](../../posts/2021-03-01-cover/great-convergence.jpg)
 
 ## 2021.03.23 动漫 鬼灭之刃
 
@@ -52,7 +52,7 @@ categories: [life]
 
 <center>
 <a href="https://movie.douban.com/subject/30210221/">
-<img src="../posts/2021-03-01-cover/slayer.webp" width="80%" alt=""/>
+<img src="../../posts/2021-03-01-cover/slayer.webp" width="80%" alt=""/>
 </a>
 </center>
 
@@ -66,6 +66,6 @@ categories: [life]
 
 <center>
 <a href="https://movie.douban.com/subject/34895145/">
-<img src="../posts/2021-03-01-cover/juju.webp" width="80%" alt=""/>
+<img src="../../posts/2021-03-01-cover/juju.webp" width="80%" alt=""/>
 </a>
 </center>

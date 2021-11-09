@@ -15,10 +15,10 @@ categories: [life]
 <center>
 <table> <tr>
 <td> <a>
-<img src="../posts/2021-02-01-cover/dk.webp" width="500px" alt=""/>
+<img src="../../posts/2021-02-01-cover/dk.webp" width="500px" alt=""/>
 </a> </td>
 <td> <a>
-<img src="../posts/2021-02-01-cover/jk.webp" width="500px" alt=""/>
+<img src="../../posts/2021-02-01-cover/jk.webp" width="500px" alt=""/>
 </a> </td>
 </tr> </table>
 </center>
@@ -29,13 +29,13 @@ categories: [life]
 
 没有不可救药的学生，可惜合适的教导可遇不可求。
 
-![](../posts/2021-02-01-cover/fangniuban.webp)
+![](../../posts/2021-02-01-cover/fangniuban.webp)
 
 ## 2021.02.25 刺杀小说家
 
 还行，国产片新尝试，糅合了很多元素，印象深刻的有重庆的 3D 街道、强行超能力大战，还不错的特效，最后也算是圆回来了。
 
-![](../posts/2021-02-01-cover/a-writers-odyssey.webp)
+![](../../posts/2021-02-01-cover/a-writers-odyssey.webp)
 
 ## 2021.02.26 蝴蝶效应
 
@@ -43,4 +43,4 @@ categories: [life]
 
 常常会陷入迷思，如果能够弥补过去的某个遗憾，是不是一切就会好起来？这样的想法会影响真实行动，比如，学业上的遗憾，小时候经济上的拮据等等，如果偏执的去弥补反而会被困在过去的问题里。过去的已经过去了，沉溺于过去有毒。
 
-![](../posts/2021-02-01-cover/butterfly.webp)
+![](../../posts/2021-02-01-cover/butterfly.webp)
