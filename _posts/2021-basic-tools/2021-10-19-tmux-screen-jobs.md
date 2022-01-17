@@ -103,9 +103,9 @@ screen -S new_screen -X stuff "java -version
 
 注意换行和引号的使用。
 
-特殊用法，SSH 登录时启动 `screen`, 可以在本地使用以下命令登陆:
+特殊用法，SSH 登录时启动 `screen` 并 attach 到一个特定的 screen, 可以在本地使用以下命令登陆:
 
-    ssh -t host.example.com screen -R -d
+    ssh -t host.example.com screen -Rd -S your_name
 
 或者在服务器修改 `.bashrc` 文件，以便与 MOSH 兼容。添加行：
     
