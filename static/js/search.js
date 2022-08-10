@@ -1,21 +1,21 @@
 // 加载所有文章数据，优先使用localStorage缓存
 function loadAllPostData(callback) {
   if (localStorage.db && localStorage.dbVersion == blog.buildAt) {
-    console.log('loadAllPostData from localStorage')
+    document.querySelector('.page-search .icon-loading').style.opacity = 0
     callback ? callback(localStorage.db) : ''
     return
   }
 
-  console.log('loadAllPostData from ajax')
   localStorage.removeItem('dbVersion')
   localStorage.removeItem('db')
 
   blog.ajax(
     {
       timeout: 20000,
-      url: blog.baseurl + '/static/xml/search.xml'
+      url: blog.baseurl + '/static/xml/search.xml?t=' + blog.buildAt
     },
     function (data) {
+      document.querySelector('.page-search .icon-loading').style.opacity = 0
       localStorage.db = data
       localStorage.dbVersion = blog.buildAt
       callback ? callback(data) : ''
@@ -30,49 +30,42 @@ function loadAllPostData(callback) {
 // 搜索功能
 blog.addLoadEvent(function () {
   // 标题等信息
-  var titles = []
+  let titles = []
   // 正文内容
-  var contents = []
-  // IOS 键盘中文输入bug
-  var inputLock = false
+  let contents = []
+  // 低版本chrome，输入拼音的过程中也会触发input事件
+  let inputLock = false
   // 输入框
-  var input = document.getElementById('search-input')
+  let input = document.getElementById('search-input')
 
-  // 非搜索页面，预加载数据
+  // 非搜索页面
   if (!input) {
-    setTimeout(function () {
-      loadAllPostData()
-    }, 3500)
     return
   }
 
-  var loadingDOM = document.querySelector('.page-search h1 img')
-  loadingDOM.style.opacity = 1
   loadAllPostData(function (data) {
-    console.log('loadAllPostData done')
-    loadingDOM.style.opacity = 0
-    titles = parseTitle(data)
+    titles = parseTitle()
     contents = parseContent(data)
     search(input.value)
   })
 
   function parseTitle() {
     let arr = []
-    document.querySelectorAll('.list-search .title').forEach(function (title) {
-      arr.push(title.innerHTML)
-    })
+    let doms = document.querySelectorAll('.list-search .title')
+    for (let i = 0; i < doms.length; i++) {
+      arr.push(doms[i].innerHTML)
+    }
     return arr
   }
 
   function parseContent(data) {
     let arr = []
-    var root = document.createElement('div')
+    let root = document.createElement('div')
     root.innerHTML = data
-    root.querySelectorAll('li').forEach(function (content) {
-      var str = content.innerHTML
-      arr.push(str)
-    })
-    root = null
+    let doms = root.querySelectorAll('li')
+    for (let i = 0; i < doms.length; i++) {
+      arr.push(doms[i].innerHTML)
+    }
     return arr
   }
 
@@ -81,15 +74,15 @@ blog.addLoadEvent(function () {
     key = blog.trim(key)
     key = key.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&/g, '&amp;')
 
-    var doms = document.querySelectorAll('.list-search li')
-    var h1 = '<span class="hint">'
-    var h2 = '</span>'
+    let doms = document.querySelectorAll('.list-search li')
+    let h1 = '<span class="hint">'
+    let h2 = '</span>'
     for (let i = 0; i < doms.length; i++) {
-      var title = titles[i]
-      var content = contents[i]
-      var dom_li = doms[i]
-      var dom_title = dom_li.querySelector('.title')
-      var dom_content = dom_li.querySelector('.content')
+      let title = titles[i]
+      let content = contents[i]
+      let dom_li = doms[i]
+      let dom_title = dom_li.querySelector('.title')
+      let dom_content = dom_li.querySelector('.content')
 
       dom_title.innerHTML = title
       dom_content.innerHTML = ''
@@ -99,9 +92,9 @@ blog.addLoadEvent(function () {
         dom_li.setAttribute('hidden', true)
         continue
       }
-      var hide = true
-      var r1 = new RegExp(blog.encodeRegChar(key), 'gi')
-      var r2 = new RegExp(blog.encodeRegChar(key), 'i')
+      let hide = true
+      let r1 = new RegExp(blog.encodeRegChar(key), 'gi')
+      let r2 = new RegExp(blog.encodeRegChar(key), 'i')
 
       // 标题全局替换
       if (r1.test(title)) {
@@ -109,13 +102,13 @@ blog.addLoadEvent(function () {
         dom_title.innerHTML = title.replace(r1, h1 + key + h2)
       }
       // 内容先找到第一个，然后确定100个字符，再对这100个字符做全局替换
-      var cResult = r2.exec(content)
+      let cResult = r2.exec(content)
       if (cResult) {
         hide = false
-        index = cResult.index
-        var leftShifting = 10
-        var left = index - leftShifting
-        var right = index + (100 - leftShifting)
+        let index = cResult.index
+        let leftShifting = 10
+        let left = index - leftShifting
+        let right = index + (100 - leftShifting)
         if (left < 0) {
           right = right - left
         }

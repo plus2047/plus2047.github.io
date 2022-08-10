@@ -1,7 +1,7 @@
 // 打印主题标识,请保留出处
 ;(function () {
   var style1 = 'background:#4BB596;color:#ffffff;border-radius: 2px;'
-  var style2 = 'color:#000000;'
+  var style2 = 'color:auto;'
   var author = ' TMaize'
   var github = ' https://github.com/TMaize/tmaize-blog'
   var build = ' ' + blog.buildAt.substr(0, 4)
@@ -88,19 +88,6 @@ blog.removeClass = function (dom, className) {
       if (list[i] != className) newName = newName + ' ' + list[i]
     }
     dom.className = blog.trim(newName)
-  }
-}
-
-/**
- * 工具，DOM切换某个class
- * @param {单个DOM节点} dom
- * @param {class名} className
- */
-blog.toggleClass = function (dom, className) {
-  if (blog.hasClass(dom, className)) {
-    blog.removeClass(dom, className)
-  } else {
-    blog.addClass(dom, className)
   }
 }
 
@@ -220,10 +207,13 @@ blog.initClickEffect = function (textArr) {
   }
 
   blog.addEvent(window, 'click', function (ev) {
-    var tagName = ev.target.tagName.toLocaleLowerCase()
-    if (tagName == 'a') {
-      return
+    let target = ev.target
+    while (target !== document.documentElement) {
+      if (target.tagName.toLocaleLowerCase() == 'a') return
+      if (blog.hasClass(target, 'footer-btn')) return
+      target = target.parentNode
     }
+
     var text = textArr[parseInt(Math.random() * textArr.length)]
     var dom = createDOM(text)
 
@@ -269,8 +259,8 @@ blog.addLoadEvent(function () {
 
 // 回到顶部
 blog.addLoadEvent(function () {
-  var toTopDOM = document.getElementById('to-top')
-
+  var el = document.querySelector('.footer-btn.to-top')
+  if (!el) return
   function getScrollTop() {
     if (document.documentElement && document.documentElement.scrollTop) {
       return document.documentElement.scrollTop
@@ -280,16 +270,21 @@ blog.addLoadEvent(function () {
   }
   function ckeckToShow() {
     if (getScrollTop() > 200) {
-      blog.addClass(toTopDOM, 'show')
+      blog.addClass(el, 'show')
     } else {
-      blog.removeClass(toTopDOM, 'show')
+      blog.removeClass(el, 'show')
     }
   }
   blog.addEvent(window, 'scroll', ckeckToShow)
-  blog.addEvent(toTopDOM, 'click', function(event){
-    window.scrollTo(0,0)
-    event.stopPropagation()
-  }, true)
+  blog.addEvent(
+    el,
+    'click',
+    function (event) {
+      window.scrollTo(0, 0)
+      event.stopPropagation()
+    },
+    true
+  )
   ckeckToShow()
 })
 
@@ -298,31 +293,32 @@ blog.addLoadEvent(function () {
   if (!document.querySelector('.page-post')) {
     return
   }
-  console.log('init post img click event')
+  console.debug('init post img click event')
   let imgMoveOrigin = null
   let restoreLock = false
   let imgArr = document.querySelectorAll('.page-post img')
 
-  let css = `  .img-move-bg {
-    transition: opacity 300ms ease;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    background-color: #666666;
-    z-index: 100;
-  }
-  .img-move-item {
-    transition: all 300ms ease;
-    position: fixed;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 101;
-  }`
+  let css = [
+    '.img-move-bg {',
+    '  transition: opacity 300ms ease;',
+    '  position: fixed;',
+    '  left: 0;',
+    '  top: 0;',
+    '  right: 0;',
+    '  bottom: 0;',
+    '  opacity: 0;',
+    '  background-color: #000000;',
+    '  z-index: 100;',
+    '}',
+    '.img-move-item {',
+    '  transition: all 300ms ease;',
+    '  position: fixed;',
+    '  opacity: 0;',
+    '  cursor: pointer;',
+    '  z-index: 101;',
+    '}'
+  ].join('')
   var styleDOM = document.createElement('style')
-  styleDOM.type = 'text/css'
   if (styleDOM.styleSheet) {
     styleDOM.styleSheet.cssText = css
   } else {
@@ -412,5 +408,66 @@ blog.addLoadEvent(function () {
       img.style.opacity = 1
       toCenter()
     }, 0)
+  }
+})
+
+// 切换夜间模式
+blog.addLoadEvent(function () {
+  const $el = document.querySelector('.footer-btn.theme-toggler')
+  const $icon = $el.querySelector('.svg-icon')
+
+  blog.removeClass($el, 'hide')
+  if (blog.darkMode) {
+    blog.removeClass($icon, 'icon-theme-light')
+    blog.addClass($icon, 'icon-theme-dark')
+  }
+
+  function initDarkMode(flag) {
+    blog.removeClass($icon, 'icon-theme-light')
+    blog.removeClass($icon, 'icon-theme-dark')
+    if (flag === 'true') blog.addClass($icon, 'icon-theme-dark')
+    else blog.addClass($icon, 'icon-theme-light')
+
+    document.documentElement.setAttribute('transition', '')
+    setTimeout(function () {
+      document.documentElement.removeAttribute('transition')
+    }, 600)
+
+    blog.initDarkMode(flag)
+  }
+
+  blog.addEvent($el, 'click', function () {
+    const flag = blog.darkMode ? 'false' : 'true'
+    localStorage.darkMode = flag
+    initDarkMode(flag)
+  })
+
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (ev) {
+      const systemDark = ev.target.matches
+      if (systemDark !== blog.darkMode) {
+        localStorage.darkMode = '' // 清除用户设置
+        initDarkMode(systemDark ? 'true' : 'false')
+      }
+    })
+  }
+})
+
+// 标题定位
+blog.addLoadEvent(function () {
+  if (!document.querySelector('.page-post')) {
+    return
+  }
+  const list = document.querySelectorAll('.post h1, .post h2')
+  for (var i = 0; i < list.length; i++) {
+    blog.addEvent(list[i], 'click', function (event) {
+      const el = event.target
+      if (el.scrollIntoView) {
+        el.scrollIntoView({ block: 'start' })
+      }
+      if (el.id && history.replaceState) {
+        history.replaceState({}, '', '#' + el.id)
+      }
+    })
   }
 })
