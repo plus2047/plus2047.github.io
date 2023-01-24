@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: grep, sed, awk and RegExp
-categories: [tech, cheetsheet]
+categories: [tech, cheatsheet]
 ---
 
 ## GREP

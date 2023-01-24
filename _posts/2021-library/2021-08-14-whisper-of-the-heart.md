@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 2021.08 侧耳倾听 & 海街日记 & 花束般的恋爱
-categories: [life]
+categories: [library]
 ---
 
 ## 2021.07.10 侧耳倾听 / 耳をすませば

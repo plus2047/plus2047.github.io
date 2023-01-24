@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 2021.03 书影音
-categories: [life]
+categories: [library]
 ---
 
 ## 2021.03.04 征服与革命中的阿拉伯人

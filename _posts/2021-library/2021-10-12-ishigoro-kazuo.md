@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 2021.10 远山淡影 长日将尽
-categories: [life]
+categories: [library]
 ---
 
 ## 远山淡影 & 长日将尽

@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 2021.02 书影音记录
-categories: [life]
+categories: [library]
 ---
 
 ## 2021.02.05 男子高中生的日常 & 女子高中生的虚度日常

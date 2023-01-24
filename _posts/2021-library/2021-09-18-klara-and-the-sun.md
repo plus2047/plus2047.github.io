@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 2021.09 Klara and the sun
-categories: [life]
+categories: [library]
 ---
 
 ## 克拉拉与太阳
