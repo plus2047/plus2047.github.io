@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Personalize Realtime Search 个性化实时搜索
-categories: [tech]
+categories: [tech, project]
 ---
 
 本文讨论一个非常有意思的问题：电商搜索（广告）业务中的个性化、实时化。

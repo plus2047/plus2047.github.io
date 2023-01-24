@@ -4,7 +4,7 @@ title: EVA
 categories: []
 ---
 
-<img src="../posts/2022-cover/eva.webp" alt="image" style="zoom:50%;" />
+<img src="../posts/2022-library/eva.webp" alt="image" style="zoom:50%;" />
 
 重温了 EVA TV 版和旧剧场版. 年龄渐长，对作品确实会有新的理解，也有可能是我记住了以前看的影评。在 AT 力场的隐喻之下，作品中所有人既需要他人，又排斥他人、被他人所伤害。AT 力场像是「个人边界」，其存在令人与人之间不能互相理解、互相融合，但也令个体得以存在。剧场版的最末尾，部分人类选择失去 AT 立场，融合成「完美的生命」，部分人类选择恢复 AT 力场，回归有个体存在的世界。
 
@@ -16,7 +16,7 @@ EVA 是讲述父母的作品。碇源堂是碇真嗣的父亲，但他不喜欢�
 
 ## 堀与宫村
 
-<img src="../posts/2022-cover/ku.jpg" alt="image" style="zoom:50%;" />
+<img src="../posts/2022-library/ku.jpg" alt="image" style="zoom:50%;" />
 
 重温了一边堀与宫村，这部作品最令我喜欢的是 OP.
 

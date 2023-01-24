@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习方法 第 04 章 朴素贝叶斯法
-categories: [mlearn]
+categories: [math, book-stat-learn]
 ---
 
 朴素贝叶斯模型直接从数据中统计 $P(y), P(x \mid y)$ 进而计算 $P(x,y)$，属于生成模型。$P(y), P(x \mid y)$ 都是多项分布。
@@ -107,7 +107,7 @@ $$p_k = \arg\max p_k^\lambda \prod_k p_k^{C_k}$$
 
 但是，考虑二分类问题，可以定义分布 $P'(p_0) = p_0^\lambda(1-p_0)^\lambda$. 这是一个合理的分布，当 $\lambda = 0$ 时退化为均匀分布，当 $\lambda = 1$ 时分布为：
 
-![](../../posts/2020-book-stat-learn/beta.jpg)
+![](../../posts/2020-tech/beta.jpg)
 
 当 $\lambda$ 越大，该分布越「尖锐」，代表先验有更高的信心假设 $y$ 分布是均匀分布。当 $\lambda = \infty$ 时 $p_0'=0.5$ 代表先验完全确定 $y$ 分布是均匀分布。这些结论都是合理的。
 

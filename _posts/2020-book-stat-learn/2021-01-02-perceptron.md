@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习方法 第 02 章 感知机
-categories: [mlearn]
+categories: [math, book-stat-learn]
 ---
 
 - 线性二分类问题；分类问题，线性模型，监督训练；判别模型

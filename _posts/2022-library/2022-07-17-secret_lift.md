@@ -4,7 +4,7 @@ title: 白日梦想家
 categories: [library]
 ---
 
-![](../../posts/2022-cover/skateboard.jpeg)
+![](../../posts/2022-library/skateboard.jpeg)
 
 好友喜欢滑板推荐我看的一部电影，其实有点鸡汤，让我想起阿甘正传。
 

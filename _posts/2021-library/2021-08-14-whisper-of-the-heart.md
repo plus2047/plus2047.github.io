@@ -7,7 +7,7 @@ categories: [life]
 ## 2021.07.10 侧耳倾听 / 耳をすませば
 
 <center>
-<img src="../../posts/2021-08-14-cover/whisper.webp" width="60%" alt=""/>
+<img src="../../posts/2021-library/whisper.webp" width="60%" alt=""/>
 </center>
 
 毕业旅行时队友推荐的 1995 年的动画电影。
@@ -37,13 +37,13 @@ categories: [life]
 队友推荐的另一部电影。同样的夏天、清新的故事。四姐妹温馨的家庭故事。
 
 <center>
-<img src="../../posts/2021-08-14-cover/diary.webp" width="60%" alt=""/>
+<img src="../../posts/2021-library/diary.webp" width="60%" alt=""/>
 </center>
 
 ## 2021.08.14 花束般的恋爱
 
 <center>
-<img src="../../posts/2021-08-14-cover/hanataba.webp" width="60%" alt=""/>
+<img src="../../posts/2021-library/hanataba.webp" width="60%" alt=""/>
 </center>
 
 100% 的合拍抵不过柴米油盐的故事。电影看到 30% 忍不住看了看时间：到这里就已经到了幸福的高峰，那后面一个多小时得多虐啊。。之后，麦为了留住两个人的幸福时光而走入社会，但却在社会的毒打之后忘记了初心，不再相信当初的幸福时光可以留存。麦从当初的文艺青年变成了社会人。没有时间读小说、看漫画、看电影看展，于是失去了与娟的交集。

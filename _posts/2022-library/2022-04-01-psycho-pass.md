@@ -4,7 +4,7 @@ title: PHYCHO-PASS I & II
 categories: [library]
 ---
 
-<img src="../../posts/2022-cover/phycho-pass.jpg" alt="image" style="zoom:50%;" />
+<img src="../../posts/2022-library/phycho-pass.jpg" alt="image" style="zoom:50%;" />
 
 2012 年的动漫，由于国内封杀，其由 EGOIST 演唱的 ED《名前のない怪物》比作品本身流传更广。由虚渊玄加盟的第一部比第二部优秀。作品描述了一个由测定的指数决定人的生活、犯罪的定夺甚至生死的世界，可是测定心理指数的系统本身又是如何构成呢？它的合法性从何而来？如果出现了它不能判定的人，应该怎么办？它会不会犯错？
 
