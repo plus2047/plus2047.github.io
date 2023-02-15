@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习方法 第 04 章 朴素贝叶斯法
-categories: [math, book-stat-learn]
+categories: [math, cs-stat-learn]
 ---
 
 朴素贝叶斯模型直接从数据中统计 $P(y), P(x \mid y)$ 进而计算 $P(x,y)$，属于生成模型。$P(y), P(x \mid y)$ 都是多项分布。
@@ -81,74 +81,7 @@ P(y = y_k) = \frac{\lambda + C(y=y_k)}{K\lambda + D} \\
 P(x_n = a_{n,k} \mid y_k) = \frac{\lambda + C(x_n = a_{n,k}, y=y_k)}{K_n\lambda + C(y=y_k)}
 $$
 
-使用贝叶斯估计策略的关键问题在于确定模型参数 $p_k$ 的先验分布，课本上并没有给出先验分布。下面结合拉格朗日乘子法求解步骤，从该平滑项逆推先验分布。
-
-最大似然估计结果：
-
-$$p_k = \frac{C_k}{\sum_k C_k} $$ 
-
-贝叶斯估计结果：
-
-$$p_k = \frac{C_k + \lambda}{\sum_k(C_k + \lambda)} $$
-
-对比两式，结合最大似然估计的拉格朗日函数，逆推贝叶斯估计的最优化问题的拉格朗日函数：
-
-$$
-\frac{\partial}{\partial p_k} L = - \left( \frac{C_k}{p_k} + \frac{\lambda}{p_k}  \right) + D \\
-L =  - \left[ \lambda \log p_k \sum_k C_k \log p_k \right] + D\left(\sum_k p_k - 1\right) \\
-$$
-
-该拉格朗日函数对应的优化问题可能是：
-
-$$p_k = \arg\max p_k^\lambda \prod_k p_k^{C_k}$$
-
-
-于是，不考虑归一项，$p_k$ 先验分布取 $p_k^\lambda$。这不是合理的概率分布，先验概率分布没有理由是 $p_k$ 越大概率越大。
-
-但是，考虑二分类问题，可以定义分布 $P'(p_0) = p_0^\lambda(1-p_0)^\lambda$. 这是一个合理的分布，当 $\lambda = 0$ 时退化为均匀分布，当 $\lambda = 1$ 时分布为：
-
-![](../../posts/2020-tech/beta.jpg)
-
-当 $\lambda$ 越大，该分布越「尖锐」，代表先验有更高的信心假设 $y$ 分布是均匀分布。当 $\lambda = \infty$ 时 $p_0'=0.5$ 代表先验完全确定 $y$ 分布是均匀分布。这些结论都是合理的。
-
-于是有一个新问题：$P(p_0)=p_0^\lambda$ 和 $P'(p_0) = p_0^\lambda(1-p_0)^\lambda$ 这两个分布是什么关系？仔细考虑，在 $p_0 + p_1 = 1$ 的约束下，$p_0,p_1$ 不是两个独立的随机变量，联合概率分布 $P(p_0,p_1)$ 是没有意义的。但是，我们可以定义一个伪联合概率分布 $P'(p_0,p_1)$，这是一个二元函数，然后可以认为该函数在 $p_0 + p_1 = 1$ 的超平面上的「截面函数」就是真实的 $P(p_0)$ 或 $P(p_1)$ 概率分布。
-
-本题目中，逆推得到的 $P(p_k)$ 分布就是这样一个伪联合概率分布的边缘分布。利用约束关系消元，将伪联合概率分布限制到超平面上，就能得到真正的概率分布。 
-
-贝叶斯估计的最初形式应该是：
-
-$$
-p_1, \cdots, p_{K-1} = \arg\max_{p_1, \cdots, p_{K-1}} P( Y \mid p_1,\cdots, p_{K-1}) P(p_1, \cdots, p_{K-1}) \\
-$$
-
-注意，$K$ 分类问题的 $P(y=y_k)$ 参数只有 $K-1$ 个，因为有约束关系 $\sum_k p_k = 1$. 但是，可以引入辅助变量 $p_K$，将问题表述为：
-
-$$
-p_1, \cdots, p_K = \arg\max_{p_1, \cdots, p_K} P( Y \mid p_1,\cdots, p_K) P(p_1, \cdots, p_K)
-$$
-
-而约束关系体现到先验概率分布中：
-
-$$
-P(p_1, \cdots, p_k) = \left\{ \begin{array}{llr}\prod_k p_k^\lambda & \text{if}  & \sum_k{p_k}=1 \\
-0 & \text{others.}\end{array} \right.\\
-$$
-
-约束最优问题整理为：
-
-$$
-p_1, \cdots, p_K = \arg\max_{p_1, \cdots, p_K} P( Y \mid p_1,\cdots, p_K) \prod_k p_k^\lambda \\
-P( Y \mid p_1,\cdots, p_K) = \prod_k p_k^{C_k} \\
-\text{s.t. } \sum_k {p_k} = 1
-$$
-
-该问题的求解与最大似然估计约束最优化问题求解基本一致。
-
------
-
-进行以上推导时，笔者对于贝叶斯估计的理解不充分。贝叶斯估计会通过模型假定先给出先验的似然函数，然后根据似然函数形式直接选择恰当的共轭先验分布。
-
-先验信息的似然函数是一个多项分布: $Mult(\vec{n}\mid\vec{p},N)$
+下面给出推导。先验信息的似然函数是一个多项分布: $Mult(\vec{n}\mid\vec{p},N)$
 
 $$
 P(Y|\theta)
@@ -253,3 +186,70 @@ $$
 		{\Sigma_{i=1}^{N} I(y_i=c_k)+S_j \lambda}
 \Big)
 $$
+
+---
+
+以下是一些不成熟的思考，复习时可以跳过。
+
+使用贝叶斯估计策略的关键问题在于确定模型参数 $p_k$ 的先验分布，课本上并没有给出先验分布。结合拉格朗日乘子法求解步骤，在这里尝试从该平滑项逆推先验分布。
+
+最大似然估计结果：
+
+$$p_k = \frac{C_k}{\sum_k C_k} $$ 
+
+贝叶斯估计结果：
+
+$$p_k = \frac{C_k + \lambda}{\sum_k(C_k + \lambda)} $$
+
+对比两式，结合最大似然估计的拉格朗日函数，逆推贝叶斯估计的最优化问题的拉格朗日函数：
+
+$$
+\frac{\partial}{\partial p_k} L = - \left( \frac{C_k}{p_k} + \frac{\lambda}{p_k}  \right) + D \\
+L =  - \left[ \lambda \log p_k \sum_k C_k \log p_k \right] + D\left(\sum_k p_k - 1\right) \\
+$$
+
+该拉格朗日函数对应的优化问题可能是：
+
+$$p_k = \arg\max p_k^\lambda \prod_k p_k^{C_k}$$
+
+
+于是，不考虑归一项，$p_k$ 先验分布取 $p_k^\lambda$。这不是合理的概率分布，先验概率分布没有理由是 $p_k$ 越大概率越大。
+
+但是，考虑二分类问题，可以定义分布 $P'(p_0) = p_0^\lambda(1-p_0)^\lambda$. 这是一个合理的分布，当 $\lambda = 0$ 时退化为均匀分布，当 $\lambda = 1$ 时分布为：
+
+![](../../posts/2020/book-stat-beta-dist.jpg)
+
+当 $\lambda$ 越大，该分布越「尖锐」，代表先验有更高的信心假设 $y$ 分布是均匀分布。当 $\lambda = \infty$ 时 $p_0'=0.5$ 代表先验完全确定 $y$ 分布是均匀分布。这些结论都是合理的。
+
+于是有一个新问题：$P(p_0)=p_0^\lambda$ 和 $P'(p_0) = p_0^\lambda(1-p_0)^\lambda$ 这两个分布是什么关系？仔细考虑，在 $p_0 + p_1 = 1$ 的约束下，$p_0,p_1$ 不是两个独立的随机变量，联合概率分布 $P(p_0,p_1)$ 是没有意义的。但是，我们可以定义一个伪联合概率分布 $P'(p_0,p_1)$，这是一个二元函数，然后可以认为该函数在 $p_0 + p_1 = 1$ 的超平面上的「截面函数」就是真实的 $P(p_0)$ 或 $P(p_1)$ 概率分布。
+
+本题目中，逆推得到的 $P(p_k)$ 分布就是这样一个伪联合概率分布的边缘分布。利用约束关系消元，将伪联合概率分布限制到超平面上，就能得到真正的概率分布。 
+
+贝叶斯估计的最初形式应该是：
+
+$$
+p_1, \cdots, p_{K-1} = \arg\max_{p_1, \cdots, p_{K-1}} P( Y \mid p_1,\cdots, p_{K-1}) P(p_1, \cdots, p_{K-1}) \\
+$$
+
+注意，$K$ 分类问题的 $P(y=y_k)$ 参数只有 $K-1$ 个，因为有约束关系 $\sum_k p_k = 1$. 但是，可以引入辅助变量 $p_K$，将问题表述为：
+
+$$
+p_1, \cdots, p_K = \arg\max_{p_1, \cdots, p_K} P( Y \mid p_1,\cdots, p_K) P(p_1, \cdots, p_K)
+$$
+
+而约束关系体现到先验概率分布中：
+
+$$
+P(p_1, \cdots, p_k) = \left\{ \begin{array}{llr}\prod_k p_k^\lambda & \text{if}  & \sum_k{p_k}=1 \\
+0 & \text{others.}\end{array} \right.\\
+$$
+
+约束最优问题整理为：
+
+$$
+p_1, \cdots, p_K = \arg\max_{p_1, \cdots, p_K} P( Y \mid p_1,\cdots, p_K) \prod_k p_k^\lambda \\
+P( Y \mid p_1,\cdots, p_K) = \prod_k p_k^{C_k} \\
+\text{s.t. } \sum_k {p_k} = 1
+$$
+
+该问题的求解与最大似然估计约束最优化问题求解基本一致。

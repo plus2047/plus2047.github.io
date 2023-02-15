@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习方法 第 01 章 统计学习方法概论
-categories: [math, book-stat-learn]
+categories: [math, cs-stat-learn]
 ---
 
 在各种渠道零零碎碎学习了半年机器学习知识之后，越发感觉李航老师的《统计学习方法》确实是本好书。内容系统、完善又不过于繁琐，适合在有一定基础的情况下梳理自己的知识。我在学习过程中，为了日后查阅而整理了本篇笔记。除了课本知识要点之外，笔记也包括课本勘误、一些知识点的对比整理和补充。
@@ -10,7 +10,7 @@ categories: [math, book-stat-learn]
 
 ## 机器学习问题分类
 
-- 按照数据有无标签：**监督学习** / **非监督学习**。典型的非监督学习问题：聚类
+- 按照数据有无标签：**监督学习** / **非监督学习**，典型的非监督学习问题：聚类
 - 按照标签划分：
     - 标签为有限，可数，离散值：**分类问题**
     - 标签为连续值：**回归问题**
@@ -30,7 +30,7 @@ $$\theta_{ERM} = \arg\min_\theta \frac 1 N \sum_n L(y_i, P_\theta(y \mid x_i))$$
 
 考虑到先验信息、过拟合等，对损失函数引入正则项，可以定义结构风险最小化 Structural rist minimization, SRM：
 
-$$\theta_{ERM} = \arg\min_\theta \frac 1 N \sum_n L(y_i, P_\theta(y \mid x_i)) + \lambda J(\theta)$$
+$$\theta_{SRM} = \arg\min_\theta \frac 1 N \sum_n L(y_i, P_\theta(y \mid x_i)) + \lambda J(\theta)$$
 
 对于概率模型，可以定义极大似然估计 Maximum likelihood estimation, MLE：
 
@@ -77,11 +77,13 @@ $X, Y$ 分别表示训练数据，测试数据，则有，
 证明模型是条件概率分布，损失函数是对数损失函数时，经验风险最小化等价于极大似然估计。
 
 $$
+\begin{align*}
 \theta_{ERM}
-= \arg\min_\theta \sum_i \left[ - \log P_\theta(y_i \mid x_i) \right] \\
-= \arg\max_\theta \sum_i \log P_\theta(y_i \mid x_i)  \\
-= \arg\max_\theta \log \prod_i P_\theta(y_i \mid x_i)  \\
-= \arg\max_\theta \log P_\theta(Y \mid X)  \\
-= \arg\max_\theta P_\theta(Y \mid X)  \\
-= \theta_{MLE}
+&= \arg\min_\theta \sum_i \left[ - \log P_\theta(y_i \mid x_i) \right] \\
+&= \arg\max_\theta \sum_i \log P_\theta(y_i \mid x_i)  \\
+&= \arg\max_\theta \log \prod_i P_\theta(y_i \mid x_i)  \\
+&= \arg\max_\theta \log P_\theta(Y \mid X)  \\
+&= \arg\max_\theta P_\theta(Y \mid X)  \\
+&= \theta_{MLE}
+\end{align*}
 $$
