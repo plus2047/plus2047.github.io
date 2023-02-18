@@ -44,7 +44,7 @@ P(X, Y \mid W) &= \prod_{n=1}^N \pi(x_n)^{y_n}\left[1-\pi(x)\right]^{1-y_n} \\
 L(W) &= \log P(X,Y \mid w) \\
 &= \sum_{n=1}^N y_n \log \pi(x_n) + (1-y_n)\log[1-\pi(x_n)] \\
 &= \sum_{n=1}^N y_n \log \frac{\pi(x_n)}{1-\pi(x_n)} + \log[1-\pi(x_n)] \\
-&= \sum_{n=1}^N y_n w \cdot x_n - \log[1-\exp(w \cdot x_n)] \\
+&= \sum_{n=1}^N y_n w \cdot x_n - \log[1+\exp(w \cdot x_n)] \\
 \end{align*} $$
 
 一般使用梯度下降法或者拟牛顿法求解该似然函数。

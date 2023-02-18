@@ -22,8 +22,10 @@ $$P(x_1, x_2, \cdots x_N \mid y) = \prod_i P(x_n \mid y) $$
 没有先验假设的估计：
 
 $$
-P(y = y_k) = \frac{C(y=y_k)}{D} \\
-P(x_n = a_{n,k} \mid y_k) = \frac{C(x_n = a_{n,k}, y=y_k)}{C(y=y_k)}
+\begin{align*}
+P(y = y_k) &= \frac{C(y=y_k)}{D} \\
+P(x_n = a_{n,k} \mid y_k) &= \frac{C(x_n = a_{n,k}, y=y_k)}{C(y=y_k)}
+\end{align*}
 $$
 
 上式中 $C(y=y_k)$ 表示计数满足 $y=y_k$ 的样本数量，$D$ 为数据集大小。
@@ -33,10 +35,12 @@ $$
 下面以 $P(y=y_k)$ 为例进行推导，记 $p_k = P(y=y_k)$.
 
 $$
-p_1,\cdots,p_K = \arg\max_{p_1,\cdots,p_K} P(X, Y \mid p_k) \\
-= \arg\max_{p_1,\cdots,p_K} \prod_n\left[P(y_n)\prod_i P(x^{(i)}_n \mid y_n)\right] \\
-= \arg\max_{p_1,\cdots,p_K} \prod_n P(y_n) \\
-= \arg\max_{p_1,\cdots,p_K} \prod_k p_k^{C(y=y_k)} \\
+\begin{align*}
+p_1,\cdots,p_K &= \arg\max_{p_1,\cdots,p_K} P(X, Y \mid p_k) \\
+&= \arg\max_{p_1,\cdots,p_K} \prod_n\left[P(y_n)\prod_i P(x^{(i)}_n \mid y_n)\right] \\
+&= \arg\max_{p_1,\cdots,p_K} \prod_n P(y_n) \\
+&= \arg\max_{p_1,\cdots,p_K} \prod_k p_k^{C(y=y_k)} \\
+\end{align*}
 $$
 
 $C$ 表示计数样本中 $y=y_k$ 出现的次数，记 $C_k = C(y=y_k)$。于是问题转换为等式约束下的函数极值问题：
