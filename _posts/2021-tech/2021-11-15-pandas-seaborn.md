@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Pandas & Seaborn Notes
-categories: [tech, big-data]
+categories: [tech]
 ---
 
 Pandas 是一个类似于数据库或者 EXCEL 的表格数据处理工具。表格的每一行可以视为一个对象，每一列是一个字段。

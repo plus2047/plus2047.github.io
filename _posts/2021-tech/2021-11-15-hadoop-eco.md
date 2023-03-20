@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Apache Hadoop Ecosystem
-categories: [tech, big-data]
+categories: [tech]
 ---
 
 ## Hadoop

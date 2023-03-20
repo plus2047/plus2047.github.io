@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: PySpark + unittest + pdb = 🚀
-categories: [tech, big-data]
+categories: [tech]
 ---
 
 （我终于不摸鱼了，终于有技术文章更新了。。虽然很短。。）
