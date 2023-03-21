@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习基础 第 10 章 隐马尔可夫模型
-categories: [math, cs-stat-learn]
+categories: [math]
 ---
 
 本文特殊记号：$x_1,x_2,\cdots,x_n \rightarrow x_1^n$；$I$ 代表 $I$ 数据集，$i_t$ 代表数据集中某时刻的状态，也即一条观测数据。一些【马尔可夫链】相关概念：

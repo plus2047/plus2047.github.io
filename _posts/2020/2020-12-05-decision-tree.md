@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习方法 第 05 章 决策树
-categories: [math, cs-stat-learn]
+categories: [math]
 ---
 
 本篇笔记参考课本的本章总结。

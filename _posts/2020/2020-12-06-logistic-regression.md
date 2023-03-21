@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习方法 第 06 章 洛基斯蒂回归与最大熵模型
-categories: [math, cs-stat-learn]
+categories: [math]
 ---
 
 ## 逻辑斯蒂回归模型

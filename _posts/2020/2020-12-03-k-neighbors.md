@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习方法 第 03 章 K 近邻法
-categories: [math, cs-stat-learn]
+categories: [math]
 ---
 
 K 近邻算法没有模型参数，其损失函数的意义与其他机器学习算法有所不同。K 近邻算法不使用损失函数更新参数，而是直接用损失函数进行分类。

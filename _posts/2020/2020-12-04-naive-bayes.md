@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 统计学习方法 第 04 章 朴素贝叶斯法
-categories: [math, cs-stat-learn]
+categories: [math]
 ---
 
 朴素贝叶斯模型直接从数据中统计 $P(y), P(x \mid y)$ 进而计算 $P(x,y)$，属于生成模型。$P(y), P(x \mid y)$ 都是多项分布。
