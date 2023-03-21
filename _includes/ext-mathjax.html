@@ -1,43 +1,27 @@
-<!-- MathJax数学公式支持 -->
-<style>
-  .has-jax {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: transparent !important;
-    line-height: normal !important;
-    word-break: normal !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .has-jax * {
-    outline: 0;
-  }
-</style>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    showProcessingMessages: false,
-    messageStyle: "none",
-    tex2jax: {
+<script>
+  window.MathJax = {
+    tex: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'a']
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
     },
-    "HTML-CSS": {
-      showMathMenu: false
+    startup: {
+      pageReady: async function () {
+        await MathJax.startup.defaultPageReady();
+
+        const mathArray = document.querySelectorAll('script[type="math/tex; mode=display"]');
+        mathArray.forEach(function (el) {
+          const math = el.textContent;
+          const displayMath = '\\[' + math + '\\]';
+          const node = document.createElement('span');
+          node.innerHTML = displayMath;
+          el.parentNode.replaceChild(node, el);
+        });
+
+        return MathJax.typesetPromise();
+      }
     }
-  });
-  // 父级元素添加类名，便于css控制
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax();
-    var i = 0;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
+  };
 </script>
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
