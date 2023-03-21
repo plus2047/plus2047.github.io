@@ -12,6 +12,7 @@ permalink: /posts/:year-:month-:day-:title.html
 kramdown:
   auto_ids: true
   input: GFM
+  math_engine: nil
 exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'cli.bat', 'dist.tar.gz']
 
 # 域名配置

@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 概率与统计 Cheatsheet
-categories: []
+categories: [math, cheatsheet]
 ---
 
 [Stanford CME 106 Probability and Statistics Cheatsheet](https://stanford.edu/~shervine/teaching/cme-106/)
